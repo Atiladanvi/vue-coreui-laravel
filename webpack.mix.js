@@ -1,5 +1,17 @@
 const mix = require('laravel-mix');
 
+mix.webpackConfig({
+    resolve: {
+        alias: {
+            "@": ".."
+        }
+    },
+    watchOptions: {
+        aggregateTimeout: 200,
+        poll: 1000
+    }
+})
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -11,5 +23,15 @@ const mix = require('laravel-mix');
  |
  */
 
+mix.webpackConfig({
+  output: {
+    chunkFilename: 'js/chunks/[name].js',
+  },
+});
+
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+  .sass('resources/sass/app.scss', 'public/css')
+
+mix.copy('node_modules/@coreui/vue/dist/coreui-vue.common.js.map', 'public/js')
+
+mix.version()
