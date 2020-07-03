@@ -33,5 +33,6 @@ mix.js('resources/js/app.js', 'public/js')
   .sass('resources/sass/app.scss', 'public/css')
 
 mix.copy('node_modules/@coreui/vue/dist/coreui-vue.common.js.map', 'public/js')
+mix.copy('node_modules/@coreui/coreui-chartjs/dist/js/coreui-chartjs.js.map', 'public/js/chunks/coreui-vue-chartjs.common.js.map')
 
 mix.version()
